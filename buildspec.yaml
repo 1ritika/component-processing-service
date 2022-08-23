@@ -1,0 +1,34 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+    - echo Logging in to Amazon ECR...
+    - aws --version
+    - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 860061945305.dkr.ecr.us-east-1.amazonaws.com
+#aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+    #- TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
+    - IMAGE_NAME=component-processing-service-777
+    - IMAGE_URI=860061945305.dkr.ecr.us-east-1.amazonaws.com/component-processing-service-777
+    - CONTAINER_NAME=component-processing-service-777
+  build:
+    commands:
+    - echo Build started on `date`
+    - echo $IMAGE_NAME
+    - mvn clean package -Ddockerfile.skip
+    - docker build -t component-processing-service-777 .
+  post_build:
+    commands:
+    - printenv
+    - echo Build completed on `date`
+    - echo $(docker images)
+    - docker tag component-processing-service-777:latest 860061945305.dkr.ecr.us-east-1.amazonaws.com/component-processing-service-777:latest
+    - echo Pushing docker image
+    - docker push 860061945305.dkr.ecr.us-east-1.amazonaws.com/component-processing-service-777:latest
+    - echo push completed
+    - printf '[{"name":"%s","imageUri":"%s"}]' $CONTAINER_NAME $IMAGE_URI > imagedefinitions.json
+artifacts:
+  files:
+  - imagedefinitions.json
