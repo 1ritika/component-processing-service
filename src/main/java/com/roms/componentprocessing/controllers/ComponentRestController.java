@@ -48,7 +48,7 @@ public class ComponentRestController {
 
     @GetMapping("/check")
     public String work() {
-    	return "working";
+    	return "working + ";
     }
     @GetMapping("/hello")
     public boolean hello(@RequestHeader("Authorization") String token)

@@ -10,7 +10,7 @@ import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
 
-@FeignClient(name = "AUTH-SERVICE-777", url="${AUTH_SERVICE_777:http://localhost:2000}")
+@FeignClient(name = "AUTH-SERVICE", url="http://54.160.184.159:2000")
 
 public interface AuthFeignClient {
 
