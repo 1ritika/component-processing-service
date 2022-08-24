@@ -46,6 +46,10 @@ public class ComponentRestController {
         this.returnProcessService = returnProcessService;
     }
 
+    @GetMapping("/check")
+    public String work() {
+    	return "working";
+    }
     @GetMapping("/hello")
     public boolean hello(@RequestHeader("Authorization") String token)
     {
