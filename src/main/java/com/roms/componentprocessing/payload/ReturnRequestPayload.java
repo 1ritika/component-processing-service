@@ -1,6 +1,6 @@
 package com.roms.componentprocessing.payload;
 
-import lombok.Data;
+//import lombok.Data;
 
 
 public class ReturnRequestPayload {

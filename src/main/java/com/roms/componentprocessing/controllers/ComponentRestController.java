@@ -26,10 +26,10 @@ import com.roms.componentprocessing.payload.ReturnRequestPayload;
 import com.roms.componentprocessing.payload.ReturnResponsePayload;
 import com.roms.componentprocessing.services.ReturnProcessService;
 
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@Slf4j
+//@Slf4j
 @CrossOrigin(origins="http://localhost:4200")
 public class ComponentRestController {
 	@Autowired
@@ -49,7 +49,7 @@ public class ComponentRestController {
     @GetMapping("/hello")
     public boolean hello(@RequestHeader("Authorization") String token)
     {
-    	log.info(token);
+    //	log.info(token);
 
     	return authFeignClient.validateAdmin(token);
 //		@SuppressWarnings({ "rawtypes", "unchecked" })

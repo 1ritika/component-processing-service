@@ -8,7 +8,7 @@ import com.roms.componentprocessing.payload.ReturnRequestPayload;
 import com.roms.componentprocessing.payload.ReturnResponsePayload;
 import com.roms.componentprocessing.repositories.PaymentReturnRepository;
 import com.roms.componentprocessing.repositories.ReturnRequestRepository;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanUtils.*;
@@ -21,7 +21,7 @@ import java.time.ZoneId;
 import java.util.UUID;
 
 @Service
-@Slf4j
+//@Slf4j
 public class ReturnProcessService {
     private final ReturnRequestRepository returnRequestRepository;
     private final PaymentReturnRepository paymentReturnRepository;

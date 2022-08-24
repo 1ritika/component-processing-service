@@ -3,11 +3,11 @@ package com.roms.componentprocessing.decoders;
 import com.roms.componentprocessing.exceptions.TokenInvalidException;
 import feign.Response;
 import feign.codec.ErrorDecoder;
-import lombok.extern.slf4j.Slf4j;
+//import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 @Component
-@Slf4j
+//@Slf4j
 public class FeignErrorDecoder implements ErrorDecoder {
 
     @Override

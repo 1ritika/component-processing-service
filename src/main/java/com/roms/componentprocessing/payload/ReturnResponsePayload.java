@@ -1,10 +1,10 @@
 package com.roms.componentprocessing.payload;
 
-import lombok.Data;
+//import lombok.Data;
 
 import java.util.Date;
 
-@Data
+//@Data
 public class ReturnResponsePayload {
     private String requestId;
     private double processingCharge;

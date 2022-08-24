@@ -1,11 +1,11 @@
 package com.roms.componentprocessing.entity;
-
-import lombok.Data;
+//
+//import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
-@Data
+//@Data
 @Entity
 @Table(name="ReturnRequests")
 public class ReturnRequest {
