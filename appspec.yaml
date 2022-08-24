@@ -6,5 +6,5 @@ Resources:
         TaskDefinition: "arn:aws:ecs:us-east-1:860061945305:task-definition/component-processing-service-777-task-definition:1"
         LoadBalancerInfo:
           ContainerName: "container-processing-service-777"
-          ContainerPort: "2000"
+          ContainerPort: "8081"
         PlatformVersion: "LATEST"
