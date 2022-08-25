@@ -57,15 +57,17 @@ public class ReturnProcessService {
         returnRequest.setProcessingCharge(processingCharge);
         returnRequest.setDateOfDelivery(Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant()));
         returnRequest.setRequestId(UUID.randomUUID().toString().replace("-", ""));
-        System.out.print(packagingAndDeliveryFeignClient.getPackagingAndDeliveryCharge(
-                returnRequestPayload.getComponentType(), returnRequestPayload.getQuantity()));
+//        System.out.print(packagingAndDeliveryFeignClient.getPackagingAndDeliveryCharge(
+  //              returnRequestPayload.getComponentType(), returnRequestPayload.getQuantity()));
 
         returnRequest.setPackageAndDeliveryCharge(packagingAndDeliveryFeignClient.getPackagingAndDeliveryCharge(
-                returnRequestPayload.getComponentType(), returnRequestPayload.getQuantity())
+                returnRequestPayload.getComponentType(),returnRequestPayload.getQuantity())
+      // returnRequest.setPackageAndDeliveryCharge(packagingAndDeliveryFeignClient.getPackagingAndDeliveryCharge(
+        //        returnRequestPayload.getComponentType(), returnRequestPayload.getQuantity())
         );
-
-       // returnRequestRepository.save(returnRequest);
-
+//
+//       // returnRequestRepository.save(returnRequest);
+//
         returnResponsePayload.setRequestId(returnRequest.getRequestId());
         returnResponsePayload.setProcessingCharge(returnRequest.getProcessingCharge());
         returnResponsePayload.setPackageAndDeliveryCharge(returnRequest.getPackageAndDeliveryCharge());

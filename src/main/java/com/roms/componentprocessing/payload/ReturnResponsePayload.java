@@ -10,6 +10,18 @@ public class ReturnResponsePayload {
     private double processingCharge;
     private double packageAndDeliveryCharge;
     private Date dateOfDelivery;
+    
+	public ReturnResponsePayload() {
+		super();
+	}
+	public ReturnResponsePayload(String requestId, double processingCharge, double packageAndDeliveryCharge,
+			Date dateOfDelivery) {
+		super();
+		this.requestId = requestId;
+		this.processingCharge = processingCharge;
+		this.packageAndDeliveryCharge = packageAndDeliveryCharge;
+		this.dateOfDelivery = dateOfDelivery;
+	}
 	public String getRequestId() {
 		return requestId;
 	}

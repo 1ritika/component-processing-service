@@ -5,19 +5,21 @@ package com.roms.componentprocessing.payload;
 
 public class ReturnRequestPayload {
 	private String requestId;
+	private String userName;
+    private long contactNumber;
+    private boolean isPriorityRequest;
+    private String componentName;
+    private String componentType;
+
+    private int quantity;
+    
     public String getRequestId() {
 		return requestId;
 	}
 	public void setRequestId(String requestId) {
 		this.requestId = requestId;
 	}
-	private String userName;
-    private long contactNumber;
-    private boolean isPriorityRequest;
 
-    private String componentType;
-    private String componentName;
-    private int quantity;
     
     public String getUserName() {
 		return userName;
@@ -65,8 +67,8 @@ public class ReturnRequestPayload {
 		return this.isPriorityRequest;
 	
 }
-	public ReturnRequestPayload(String userName, long contactNumber,  boolean isPriorityRequest,
-			String componentType, String componentName, int quantity) {
+	public ReturnRequestPayload(String userName, long contactNumber,  boolean isPriorityRequest, String componentName, 
+			String componentType, int quantity) {
 		super();
 		this.userName = userName;
 		this.contactNumber = contactNumber;

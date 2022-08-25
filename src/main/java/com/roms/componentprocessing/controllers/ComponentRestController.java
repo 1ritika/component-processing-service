@@ -1,6 +1,8 @@
 package com.roms.componentprocessing.controllers;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,13 +72,13 @@ public class ComponentRestController {
 //    
     }
 	@GetMapping(path="/ProcessDetail")
-	public ResponseEntity<ReturnResponsePayload> getComponentCharges(@RequestHeader("Authorization") String token,@RequestParam String name,@RequestParam long contactNumber,@RequestParam String componentName,@RequestParam String componentType,@RequestParam int quantity) {
+	public ResponseEntity<ReturnResponsePayload> getComponentCharges(@RequestHeader(HttpHeaders.AUTHORIZATION) String token,@RequestParam String name,@RequestParam String contactNumber,@RequestParam String componentName,@RequestParam String componentType,@RequestParam int quantity) {
 		//for(Map.Entry<String,String> 
 		//key: allParams.entrySet()) 
 		authFeignClient.validateAdmin(token);
-		ReturnRequestPayload returnRequestPayload = new ReturnRequestPayload(name,contactNumber,true,componentName,componentType,quantity);
+		ReturnRequestPayload returnRequestPayload = new ReturnRequestPayload(name,Long.parseLong(contactNumber),true,componentName,componentType,quantity);
 		
-		
+		//ResponseEntity<ReturnResponsePayload>
 		
 		//String uri = "http://localhost:9000/GetPackagingDeliveryCharge/Integral/2";
 		//sending request with headers to PackagingDelivery service to get charges 
@@ -86,8 +88,12 @@ public class ComponentRestController {
 
 		processResponseList.add(response);
 		return new ResponseEntity<>(response,HttpStatus.OK);
+		//return response;
 		
 	}
+	
+
+
 
     
 @PostMapping(path="/CompleteProcessing")
