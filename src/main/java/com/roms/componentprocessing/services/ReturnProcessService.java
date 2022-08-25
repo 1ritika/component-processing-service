@@ -79,7 +79,7 @@ public class ReturnProcessService {
 
     public boolean makePayment(PaymentInformation paymentRequest) {
 
-
+    	paymentReturnRepository.save(paymentRequest);
     	try {
         paymentReturnRepository.save(paymentRequest);
         return true;
@@ -92,7 +92,7 @@ public class ReturnProcessService {
     
     public boolean saveRequest(ReturnRequest r) {
 
-
+    	returnRequestRepository.save(r);
     	try {
         returnRequestRepository.save(r);
 
